@@ -43,4 +43,13 @@ angular.module('movieExplorerApp')
       });
     };
 
+	service.getImageURL = function(imageOrPath, size)
+	{
+		return service.getConfiguration().then(function()
+		{
+			var path = imageOrPath.file_path || imageOrPath;
+			return service.configuration.images.secure_base_url + size + path;
+		});
+	};
+	
   });
